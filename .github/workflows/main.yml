@@ -15,6 +15,10 @@ jobs:
       with:
         flutter-version: '1.7.8+hotfix.4'
     - run: flutter build appbundle --release
+    - uses: actions/upload-artifact@master
+      with:
+        name: AndroidAppBundle
+        path: ./build/app/outputs/bundle/release/app.aab
 
   build_ios:
     name: Build iOS application bundle
@@ -28,3 +32,7 @@ jobs:
       with:
         flutter-version: '1.7.8+hotfix.4'
     - run: flutter build ios --release --no-codesign
+    - uses: actions/upload-artifact@master
+      with:
+        name: iOSApp
+        path: ./build/ios/iphoneos/Runner.app
